@@ -1,38 +1,36 @@
 body {
   display: flex;
-  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
 }
 
-.panel-container {
-  justify-content: flex-start;
+.game-intro {
+display: flex;
+  flex-direction: column;
   padding: 0% 10%;
 }
 
 .logo-img {
-  width: 350px;
-  margin: 10px;
+  width: 30px;
 }
 
-.image {
-  width: 115px;
+.arrows-img {
+  width: 150px;
 }
 
 body button {
-  font-size: 20px;
-  background-color: rgb(50, 126, 241);
+  font-size: 30px;
+  background-color: rgb(187, 184, 184);
   color: #fff;
-  padding: 10px 25px;
+  padding: 20px 40px;
   border: 0;
   box-shadow: 0;
   border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.arrows {
-    width: 115px;
+  margin-bottom: 20px;
 }
 
 #game-board {
-  float: left;
-  padding: 20px 0px;
+    float: left;
+    padding: 20px 0px;
 }
