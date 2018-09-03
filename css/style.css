@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  text-align: center;
+}
+
+.panel-container {
+  justify-content: flex-start;
+  padding: 0% 10%;
+}
+
+.logo-img {
+  width: 350px;
+  margin: 10px;
+}
+
+.image {
+  width: 115px;
+}
+
+body button {
+  font-size: 20px;
+  background-color: rgb(50, 126, 241);
+  color: #fff;
+  padding: 10px 25px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.arrows {
+    width: 115px;
+}
+
+#game-board {
+  float: left;
+  padding: 20px 0px;
+}
