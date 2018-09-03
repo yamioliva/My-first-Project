@@ -3,3 +3,8 @@ window.onload = function() {
     startGame();
   };
 };
+
+function play(){
+  var audio = document.getElementById("audio");
+  audio.play();
+}
