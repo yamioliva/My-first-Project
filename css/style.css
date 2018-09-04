@@ -1,18 +1,11 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 0;
+  text-align: center;
 }
 
 .game-intro {
-display: flex;
-  flex-direction: column;
+  float: left;
   padding: 0% 10%;
-}
-
-.logo-img {
-  width: 30px;
 }
 
 .arrows-img {
@@ -21,7 +14,7 @@ display: flex;
 
 body button {
   font-size: 30px;
-  background-color: rgb(187, 184, 184);
+  background-color: rgb(151, 150, 150);
   color: #fff;
   padding: 20px 40px;
   border: 0;
