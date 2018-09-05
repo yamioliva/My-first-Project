@@ -1,6 +1,9 @@
+
 body {
   padding: 0;
   text-align: center;
+  background-image: url("../img/mountain-background.jpg");
+  background-repeat: no-repeat;
 }
 
 .game-intro {
@@ -26,4 +29,8 @@ body button {
 #game-board {
     float: left;
     padding: 20px 0px;
+}
+
+canvas {
+  background-color: white;
 }

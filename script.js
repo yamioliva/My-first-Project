@@ -5,7 +5,7 @@ window.onload = function() {
   function startGame() {
     myGameArea.myObstacles = [];
     myGameArea.start();
-    player = new Component(30, 70, "img/ciclistaplayer.png", (myGameArea.canvas.width/2) - 15, myGameArea.canvas.height - 100, "player");
+    player = new Component(70, 70, "img/ciclistaplayer.png", (myGameArea.canvas.width/2) - 30, 10, "player");
   }
   var lines = 0;
   var myGameArea = {
@@ -98,7 +98,7 @@ window.onload = function() {
     drawObstacles();
     myGameArea.frames += 1;
     for (i = 0; i < myGameArea.myObstacles.length; i += 1) {
-      myGameArea.myObstacles[i].y += 1;
+      myGameArea.myObstacles[i].y -= 1;
       myGameArea.myObstacles[i].update();
     }
     player.update();
@@ -111,15 +111,19 @@ window.onload = function() {
       maxWidth = (myGameArea.canvas.width - 80)*0.7;
       width = minWidth + Math.floor(Math.random()*(maxWidth-minWidth));
       posX = 40 + (Math.floor(Math.random() * (myGameArea.canvas.width-80-width)));
-      myGameArea.myObstacles.push(new Component(width, 20, "grey", posX, 0));
+      myGameArea.myObstacles.push(new Component(width, 15, "grey", posX, myGameArea.canvas.height));
     }
   }
   document.onkeydown = function(e) {
     if (e.keyCode == 39 && player.x < (myGameArea.canvas.width - player.width - 55)) {
-      player.x += 10;
+      player.x += 50;
     }
     if (e.keyCode == 37 && player.x > 55) {
-      player.x -= 10;
+      player.x -= 50;
     }
+    if (e.keyCode == 40) {
+      player.y += 10;
+    }
+
   };
 };
