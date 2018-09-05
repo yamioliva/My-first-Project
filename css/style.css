@@ -1,9 +1,11 @@
-
 body {
   padding: 0;
   text-align: center;
-  background-image: url("../img/mountain-background.jpg");
+  background-image: url("../img/background.jpeg");
+  background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
 }
 
 .game-intro {
@@ -16,9 +18,9 @@ body {
 }
 
 body button {
-  font-size: 30px;
-  background-color: rgb(151, 150, 150);
-  color: #fff;
+  font-size: 50px;
+  background-color: transparent;
+  color: #122730;
   padding: 20px 40px;
   border: 0;
   box-shadow: 0;
@@ -27,8 +29,8 @@ body button {
 }
 
 #game-board {
-    float: left;
-    padding: 20px 0px;
+  float: left;
+  padding: 20px 0px;
 }
 
 canvas {
