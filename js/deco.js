@@ -15,8 +15,7 @@ function Deco(game) {
 }
 
 Deco.prototype.draw = function() {
-    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-
+  this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   /* this.game.ctx.fillStyle = "green";
     this.game.ctx.fillRect(this.x, this.y, this.width, this.height); */
 };
