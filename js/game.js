@@ -6,6 +6,9 @@ function Game(idCanvas) {
   this.music = new Audio("sound/audiobikerecort.mp3");
   this.music.play();
   this.music.loop = true;
+  /* this.score = new Audio ("");
+  this.music.play();
+  this.music.loop = true; */
 }
 
 Game.prototype.init = function() {
@@ -16,6 +19,7 @@ Game.prototype.init = function() {
   this.points = 0;
   this.background = new Image();
   this.background.src = "img/road2.png";
+  this.levelFrequency = 120;
 };
 
 Game.prototype.createCanvas = function() {
@@ -26,36 +30,51 @@ Game.prototype.createCanvas = function() {
   /* this.ctx.fillStyle = "#DAB485";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
 
-  this.ctx.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height);
+  this.ctx.drawImage(
+    this.background,
+    0,
+    0,
+    this.canvas.width,
+    this.canvas.height
+  );
 };
 
 Game.prototype.start = function() {
   this.intervalId = setInterval(
     function() {
+      //console.log(this.points);
       this.clear();
       this.drawAll();
       this.moveAll();
 
       this.frames += 1;
       if (this.frames > 1000) this.frames = 0;
-      if (this.points < 100) {
-        if (this.frames % 120 === 0) {
-          this.myObstacles.push(new Obstacle(this));
-        }
+      //console.log(this.levelFrequency);
+      if (this.points % 100 == 0 && this.levelFrequency > 5) {
+        this.levelFrequency -= 5;
+      }
+      if (this.frames % this.levelFrequency === 0) {
+        this.myObstacles.push(new Obstacle(this));
+      } /* 
       } else {
         if (this.frames % 60 === 0) {
           this.myObstacles.push(new Obstacle(this));
         }
-      }
+      } */
       if (this.frames % 200 === 0) {
         this.deco.push(new Deco(this));
       }
 
-      this.points = Math.floor(this.frames / 5);
+      this.points += 1;
 
       if (this.checkCollision() || this.player.outCanvas()) {
         this.stop();
       }
+
+      if (this.giftCollision()) {
+        this.points += 1000;
+      }
+
     }.bind(this),
     1000 / this.fps
   );
@@ -86,6 +105,19 @@ Game.prototype.moveAll = function() {
   this.player.move();
 };
 
+Game.prototype.giftCollision = function(){
+  return this.deco.some(
+    function(deco) {
+      if( this.player.crashDeco(deco)){
+        this.deco.splice(deco, 1);
+        return true;
+      }else{
+        return false;
+      }
+    }.bind(this)
+  );
+};
+
 Game.prototype.checkCollision = function() {
   return this.myObstacles.some(
     function(obstacle) {
@@ -96,6 +128,7 @@ Game.prototype.checkCollision = function() {
 
 Game.prototype.stop = function() {
   clearInterval(this.intervalId);
+  this.music.pause();
   this.gameOver();
 };
 

@@ -86,6 +86,15 @@ Player.prototype.crashWith = function(obstacle) {
   );
 };
 
+Player.prototype.crashDeco = function(deco) {
+  return (
+    this.x + this.width > deco.x &&
+    deco.x + deco.width > this.x &&
+    this.y + this.height > deco.y &&
+    deco.y + deco.height > this.y
+  );
+};
+
 var KEY_DOWN = 40;
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
