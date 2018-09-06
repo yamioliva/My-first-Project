@@ -14,6 +14,8 @@ Game.prototype.init = function() {
   this.player = new Player(this);
   this.frames = 0;
   this.points = 0;
+  this.background = new Image();
+  this.background.src = "img/road2.png";
 };
 
 Game.prototype.createCanvas = function() {
@@ -21,13 +23,10 @@ Game.prototype.createCanvas = function() {
 
   /* this.ctx.fillStyle = "green";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
-  this.ctx.fillStyle = "#DAB485";
-  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  /* this.ctx.fillStyle = "#DAB485";
+  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
 
-  /* this.background = new Image();
-  this.background.src = "img/background-grass.jpg";
-
-  this.ctx.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height); */
+  this.ctx.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height);
 };
 
 Game.prototype.start = function() {
