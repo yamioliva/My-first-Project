@@ -62,7 +62,7 @@ Player.prototype.draw = function() {
 };
 
 Player.prototype.move = function() {
-  console.log(this.x);
+  //console.log(this.x);
   if (this.x < 0) {
     this.x = 0;
   } else if (this.x > this.game.canvas.width - this.width) {

@@ -1,6 +1,6 @@
-function Obstacle(game) {
+function Deco(game) {
   this.game = game;
-  this.height = 20;
+  this.height = 40;
   this.minWidth = this.game.canvas.width * 0.1;
   this.maxWidth = this.game.canvas.width * 0.2;
   this.width =
@@ -9,13 +9,18 @@ function Obstacle(game) {
     40 + Math.floor(Math.random() * (this.game.canvas.width - 80 - this.width));
   this.y = this.game.canvas.height;
   //console.log(this.minWidth, this.maxWidth);
+
+  this.img = new Image();
+  this.img.src = "img/grass-dec.png";
 }
 
-Obstacle.prototype.draw = function() {
-  this.game.ctx.fillStyle = "grey";
-  this.game.ctx.fillRect(this.x, this.y, this.width, this.height);
+Deco.prototype.draw = function() {
+    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+
+  /* this.game.ctx.fillStyle = "green";
+    this.game.ctx.fillRect(this.x, this.y, this.width, this.height); */
 };
 
-Obstacle.prototype.move = function() {
-  this.y -= 5;
+Deco.prototype.move = function() {
+  this.y -= 3;
 };

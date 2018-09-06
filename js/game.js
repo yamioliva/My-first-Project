@@ -3,10 +3,14 @@ function Game(idCanvas) {
   this.ctx = this.canvas.getContext("2d");
   this.init();
   this.fps = 60;
+  this.music = new Audio("sound/audiobikerecort.mp3");
+  this.music.play();
+  this.music.loop = true;
 }
 
 Game.prototype.init = function() {
   this.myObstacles = [];
+  this.deco = [];
   this.player = new Player(this);
   this.frames = 0;
   this.points = 0;
@@ -19,7 +23,6 @@ Game.prototype.createCanvas = function() {
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
   this.ctx.fillStyle = "#DAB485";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-  
 
   /* this.background = new Image();
   this.background.src = "img/background-grass.jpg";
@@ -36,8 +39,17 @@ Game.prototype.start = function() {
 
       this.frames += 1;
       if (this.frames > 1000) this.frames = 0;
-      if (this.frames % 240 === 0) {
-        this.myObstacles.push(new Obstacle(this));
+      if (this.points < 100) {
+        if (this.frames % 120 === 0) {
+          this.myObstacles.push(new Obstacle(this));
+        }
+      } else {
+        if (this.frames % 60 === 0) {
+          this.myObstacles.push(new Obstacle(this));
+        }
+      }
+      if (this.frames % 200 === 0) {
+        this.deco.push(new Deco(this));
       }
 
       this.points = Math.floor(this.frames / 5);
@@ -56,6 +68,9 @@ Game.prototype.clear = function() {
 
 Game.prototype.drawAll = function() {
   this.createCanvas();
+  this.deco.forEach(function(deco) {
+    deco.draw();
+  });
   this.myObstacles.forEach(function(obstacle) {
     obstacle.draw();
   });
@@ -63,6 +78,9 @@ Game.prototype.drawAll = function() {
 };
 
 Game.prototype.moveAll = function() {
+  this.deco.forEach(function(deco) {
+    deco.move();
+  });
   this.myObstacles.forEach(function(obstacle) {
     obstacle.move();
   });
@@ -85,6 +103,7 @@ Game.prototype.stop = function() {
 Game.prototype.gameOver = function() {
   this.clear();
   this.drawFinalPoints();
+  this.init();
 };
 
 Game.prototype.drawFinalPoints = function() {
