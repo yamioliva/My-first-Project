@@ -11,54 +11,30 @@ function Game(idCanvas) {
 }
 
 Game.prototype.init = function() {
+  this.background = new Background(this);
   this.myObstacles = [];
   this.deco = [];
   this.player = new Player(this);
   this.frames = 0;
   this.points = 0;
-  this.background = new Image();
-  this.background.src = "img/road2.png";
   this.levelFrequency = 120;
-};
-
-Game.prototype.createCanvas = function() {
-/*   var lines = 0;
- */  /* this.ctx.fillStyle = "green";
-  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
-  /* this.ctx.fillStyle = "#DAB485";
-  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
-
-  this.ctx.drawImage(
-    this.background,
-    0,
-    0,
-    this.canvas.width,
-    this.canvas.height
-  );
 };
 
 Game.prototype.start = function() {
   this.intervalId = setInterval(
     function() {
-      //console.log(this.points);
       this.clear();
       this.drawAll();
       this.moveAll();
 
       this.frames += 1;
       if (this.frames > 1000) this.frames = 0;
-      //console.log(this.levelFrequency);
       if (this.points % 100 == 0 && this.levelFrequency > 5) {
         this.levelFrequency -= 5;
       }
       if (this.frames % this.levelFrequency === 0) {
         this.myObstacles.push(new Obstacle(this));
-      } /* 
-      } else {
-        if (this.frames % 60 === 0) {
-          this.myObstacles.push(new Obstacle(this));
-        }
-      } */
+      }
       if (this.frames % 200 === 0) {
         this.deco.push(new Deco(this));
       }
@@ -82,17 +58,18 @@ Game.prototype.clear = function() {
 };
 
 Game.prototype.drawAll = function() {
-  this.createCanvas();
-  this.deco.forEach(function(deco) {
-    deco.draw();
-  });
+  this.background.draw();
   this.myObstacles.forEach(function(obstacle) {
     obstacle.draw();
+  });
+  this.deco.forEach(function(deco) {
+    deco.draw();
   });
   this.player.draw();
 };
 
 Game.prototype.moveAll = function() {
+  this.background.move();
   this.deco.forEach(function(deco) {
     deco.move();
   });
@@ -103,8 +80,7 @@ Game.prototype.moveAll = function() {
 };
 
 Game.prototype.giftCollision = function() {
-  /*   this.crash.play();
- */
+  /*   this.crash.play();*/
   return this.deco.some(
     function(deco) {
       if (this.player.crashDeco(deco)) {

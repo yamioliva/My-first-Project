@@ -8,7 +8,6 @@ function Deco(game) {
   this.x =
     40 + Math.floor(Math.random() * (this.game.canvas.width - 80 - this.width));
   this.y = this.game.canvas.height;
-  //console.log(this.minWidth, this.maxWidth);
 
   this.img = new Image();
   this.img.src = "img/energybar.png";
@@ -16,8 +15,6 @@ function Deco(game) {
 
 Deco.prototype.draw = function() {
   this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-  /* this.game.ctx.fillStyle = "green";
-    this.game.ctx.fillRect(this.x, this.y, this.width, this.height); */
 };
 
 Deco.prototype.move = function() {
