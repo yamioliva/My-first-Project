@@ -11,7 +11,7 @@ function Deco(game) {
   //console.log(this.minWidth, this.maxWidth);
 
   this.img = new Image();
-  this.img.src = "img/grass-dec.png";
+  this.img.src = "img/energybar.png";
 }
 
 Deco.prototype.draw = function() {

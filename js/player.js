@@ -16,16 +16,12 @@ function Player(game) {
 
 Player.prototype.setListeners = function() {
   document.onkeydown = function(e) {
-    if (
-      e.keyCode ==
-      KEY_RIGHT /* &&
-      this.x < this.game.canvas.width - this.width - 5 */
-    ) {
+    if (e.keyCode == KEY_RIGHT) {
       this.dx = 3;
       this.img.src = "img/ciclistaplayer.png";
     }
 
-    if (e.keyCode == KEY_LEFT /* && this.x > 5 */) {
+    if (e.keyCode == KEY_LEFT) {
       this.dx = -3;
       this.img.src = "img/ciclista-left.png";
     }

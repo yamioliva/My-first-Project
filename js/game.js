@@ -6,9 +6,8 @@ function Game(idCanvas) {
   this.music = new Audio("sound/audiobikerecort.mp3");
   this.music.play();
   this.music.loop = true;
-  /* this.score = new Audio ("");
-  this.music.play();
-  this.music.loop = true; */
+  /* this.crash = new Audio ("");
+  this.crash.loop = true; */
 }
 
 Game.prototype.init = function() {
@@ -23,9 +22,8 @@ Game.prototype.init = function() {
 };
 
 Game.prototype.createCanvas = function() {
-  var lines = 0;
-
-  /* this.ctx.fillStyle = "green";
+/*   var lines = 0;
+ */  /* this.ctx.fillStyle = "green";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
   /* this.ctx.fillStyle = "#DAB485";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); */
@@ -74,7 +72,6 @@ Game.prototype.start = function() {
       if (this.giftCollision()) {
         this.points += 1000;
       }
-
     }.bind(this),
     1000 / this.fps
   );
@@ -105,13 +102,15 @@ Game.prototype.moveAll = function() {
   this.player.move();
 };
 
-Game.prototype.giftCollision = function(){
+Game.prototype.giftCollision = function() {
+  /*   this.crash.play();
+ */
   return this.deco.some(
     function(deco) {
-      if( this.player.crashDeco(deco)){
+      if (this.player.crashDeco(deco)) {
         this.deco.splice(deco, 1);
         return true;
-      }else{
+      } else {
         return false;
       }
     }.bind(this)
