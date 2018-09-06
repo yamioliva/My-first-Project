@@ -24,12 +24,17 @@ Player.prototype.setListeners = function() {
       this.dx = 3;
       this.img.src = "img/ciclistaplayer.png";
     }
+
     if (e.keyCode == KEY_LEFT /* && this.x > 5 */) {
       this.dx = -3;
       this.img.src = "img/ciclista-left.png";
     }
+
     if (e.keyCode == KEY_DOWN) {
       this.dy = 3;
+    }
+    if (e.keyCode == KEY_UP) {
+      this.dy = -3;
     }
   }.bind(this);
 
@@ -42,8 +47,12 @@ Player.prototype.setListeners = function() {
       this.dx = 0;
     }
 
-    if (e.keyCode == KEY_DOWN){
-        this.dy = 0;
+    if (e.keyCode == KEY_UP) {
+      this.dy = 0;
+    }
+
+    if (e.keyCode == KEY_DOWN) {
+      this.dy = 0;
     }
   }.bind(this);
 };
@@ -58,15 +67,15 @@ Player.prototype.move = function() {
     this.x = 0;
   } else if (this.x > this.game.canvas.width - this.width) {
     this.x = this.game.canvas.width - this.width;
-  } 
+  }
 
   this.x += this.dx;
   this.y += this.dy;
 };
 
-Player.prototype.outCanvas = function (){
-    return this.y > this.game.canvas.height - this.height;
-}
+Player.prototype.outCanvas = function() {
+  return this.y > this.game.canvas.height - this.height;
+};
 
 Player.prototype.crashWith = function(obstacle) {
   return (
@@ -80,3 +89,4 @@ Player.prototype.crashWith = function(obstacle) {
 var KEY_DOWN = 40;
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
+var KEY_UP = 38;

@@ -17,5 +17,5 @@ Obstacle.prototype.draw = function() {
 };
 
 Obstacle.prototype.move = function() {
-  this.y -= 15;
+  this.y -= 5;
 };
