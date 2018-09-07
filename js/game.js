@@ -117,8 +117,8 @@ Game.prototype.drawFinalPoints = function() {
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   this.ctx.font = "34px Verdana";
   this.ctx.fillStyle = "#870007";
-  this.ctx.fillText("Game Over!", 100, 250);
+  this.ctx.fillText("Supera a Juan si puedes!", 100, 250);
   this.ctx.fillStyle = "white";
-  this.ctx.fillText("Your final score", 70, 300);
+  this.ctx.fillText("Juan tiene el récord!", 70, 300);
   this.ctx.fillText(this.points, 150, 340);
 };
