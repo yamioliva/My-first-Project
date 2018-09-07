@@ -115,7 +115,7 @@ Game.prototype.gameOver = function() {
 Game.prototype.drawFinalPoints = function() {
   this.ctx.fillStyle = "#122730";
   this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-  this.ctx.font = "34px Verdana";
+  this.ctx.font = "15px Verdana";
   this.ctx.fillStyle = "#870007";
   this.ctx.fillText("Supera a Juan si puedes!", 100, 250);
   this.ctx.fillStyle = "white";
