@@ -6,8 +6,6 @@ function Game(idCanvas) {
   this.music = new Audio("sound/audiobikerecort.mp3");
   this.music.play();
   this.music.loop = true;
-  /* this.crash = new Audio ("");
-  this.crash.loop = true; */
 }
 
 Game.prototype.init = function() {
@@ -28,7 +26,9 @@ Game.prototype.start = function() {
       this.moveAll();
 
       this.frames += 1;
+      //mil es un control para que a la hora de sumar frames no suba demasiado el valor.
       if (this.frames > 1000) this.frames = 0;
+      // módulos de 100 para que controlar la frecuencia.
       if (this.points % 100 == 0 && this.levelFrequency > 5) {
         this.levelFrequency -= 5;
       }
@@ -44,7 +44,7 @@ Game.prototype.start = function() {
       if (this.checkCollision() || this.player.outCanvas()) {
         this.stop();
       }
-
+      //que sume 1000 para que se note la diferencia de puntos, puede ser cualquiera.
       if (this.giftCollision()) {
         this.points += 1000;
       }
@@ -80,7 +80,6 @@ Game.prototype.moveAll = function() {
 };
 
 Game.prototype.giftCollision = function() {
-  /*   this.crash.play();*/
   return this.deco.some(
     function(deco) {
       if (this.player.crashDeco(deco)) {
