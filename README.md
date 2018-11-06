@@ -1,7 +1,8 @@
-Juego sencillo realizado con HTML, CSS, Javascript y canvas.
+JUEGO SENCILLO REALIZADO CON HTML, CSS, Javascript y canvas.
+
 Para empezar a jugar, link: https://yamioliva.github.io/My-first-Project/ 
 
-Ejemplo del código:
+EJEMPLO DE CÓDIGO:
 
 function Background(game) {
   this.game = game;
