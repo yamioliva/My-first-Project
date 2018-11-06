@@ -1,14 +1,11 @@
 JUEGO SENCILLO REALIZADO CON HTML, CSS, Javascript y canvas.
-
-Para empezar a jugar, link: https://yamioliva.github.io/My-first-Project/ 
-
+PARA EMPEZAR A JUGAR: https://yamioliva.github.io/My-first-Project/ 
 EJEMPLO DE CÓDIGO:
 
 function Background(game) {
   this.game = game;
   this.img = new Image();
   this.img.src = "img/road2.png";
-
   this.x = 0;
   this.y = 0;
   this.dy = 5;
