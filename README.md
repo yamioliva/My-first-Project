@@ -1,5 +1,7 @@
-link: 
-https://yamioliva.github.io/My-first-Project/ 
+Juego sencillo realizado con HTML, CSS, Javascript y canvas.
+Para empezar a jugar, link: https://yamioliva.github.io/My-first-Project/ 
+
+Ejemplo del código:
 
 function Background(game) {
   this.game = game;
@@ -10,3 +12,14 @@ function Background(game) {
   this.y = 0;
   this.dy = 5;
 }
+----------------------------------------------------------------------------------------------------------------------------
+Player.prototype.move = function() {
+  if (this.x < 0) {
+    this.x = 0;
+  } else if (this.x > this.game.canvas.width - this.width) {
+    this.x = this.game.canvas.width - this.width;
+  }
+
+  this.x += this.dx;
+  this.y += this.dy;
+};
