@@ -3,6 +3,7 @@ JUEGO SENCILLO REALIZADO CON HTML, CSS, Javascript y canvas.
 PARA EMPEZAR A JUGAR: https://yamioliva.github.io/My-first-Project/ 
 
 EJEMPLO DE CÓDIGO:
+----------------------------------------------------------------------------------------------------------------------------
 
 function Background(game) {
 
@@ -24,17 +25,11 @@ function Background(game) {
 Player.prototype.move = function() {
 
   if (this.x < 0) {
-  
-    this.x = 0;
-    
+  this.x = 0;
   } else if (this.x > this.game.canvas.width - this.width) {
-  
-    this.x = this.game.canvas.width - this.width;
-    
+  this.x = this.game.canvas.width - this.width;
   }
-  
   this.x += this.dx;
-  
   this.y += this.dy;
   
 };
