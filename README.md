@@ -1,6 +1,6 @@
 JUEGO SENCILLO REALIZADO CON HTML, CSS, Javascript y canvas.
 
-PARA EMPEZAR A JUGAR: https://yamioliva.github.io/My-first-Project/ 
+PARA EMPEZAR A JUGAR: https://yamioliva.github.io/YBike/
 
 EJEMPLO DE CÓDIGO:
 ----------------------------------------------------------------------------------------------------------------------------
